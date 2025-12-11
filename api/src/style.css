@@ -30,11 +30,16 @@
   width: 67%;
   margin: auto;
   border: 2px solid red;
+  display: flex;
 }
 .card{
-  width: 100%;
+  width: 67%;
   border: 2px solid white;
   background-color: var(--primary);
   border-radius: 6px;
+  margin: auto;
 }
 .card p{}
+button{
+  display: block;
+}

@@ -1,7 +1,7 @@
 import { showPonyData } from './pony';
 import './style.css'
 
-const url = 'http://ponyapi.net/v1/character/all';
+const url = 'http://ponyapi.net/v1/character/all?limit=350';
 const ponyCardDiv = document.querySelector('#ponyCardDiv');
 
 /*fetch(url)
@@ -15,12 +15,13 @@ async function loadCards(url){
         const response = await fetch(url);
         const data = await response.json();
         const dataArr = data['data'];
-        console.log(data['data'])
         dataArr.forEach(obj => {
             const ponyName = obj['name']
             //selecting the first available image
+            if(!obj.hasOwnProperty('image')){
+                return;
+            }
             const ponyImg = obj['image'][0]
-            console.log(obj)
             ponyCardDiv.insertAdjacentHTML('beforeend', 
                 `
                 <div class="card">
@@ -37,7 +38,6 @@ async function loadCards(url){
             const ponyName = ponyCard.querySelector('.characterName').textContent;
             showPonyData(ponyName)
         }))
-        //return data;
     }
     catch(error){
         console.error(error);
