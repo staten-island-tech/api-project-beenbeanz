@@ -36,7 +36,10 @@ async function loadCards(url){
         learnMoreBtns.forEach(btn => btn.addEventListener('click', (e) => {
             const ponyCard = e.target.parentElement;
             const ponyName = ponyCard.querySelector('.characterName').textContent;
-            showPonyData(ponyName)
+            window.location.href = `./pony.html?pony=${ponyName}`;
+
+            //window.location.href = './pony.html';
+            //showPonyData(ponyName)
         }))
     }
     catch(error){
@@ -44,4 +47,3 @@ async function loadCards(url){
     }
 }
 loadCards(url)
-
