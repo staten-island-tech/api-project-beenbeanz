@@ -22,11 +22,13 @@ export async function showPonyData(ponyName){
         const data = await response.json();
         const dataArr = data['data'][0]
         console.log(dataArr)
+        const keysArr = [];
         
         for(let key in dataArr){
             console.log(key, dataArr[key])
+            keysArr.push(key, dataArr[key]);
         }
-
+        console.log(keysArr)
         const ponyInfoSection = document.querySelector('#ponyInfo')
         ponyInfoSection.insertAdjacentHTML('beforeend', 
             `
