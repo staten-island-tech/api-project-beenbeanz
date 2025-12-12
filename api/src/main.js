@@ -1,4 +1,3 @@
-import { showPonyData } from './pony';
 import './style.css'
 
 const url = 'http://ponyapi.net/v1/character/all?limit=350';
@@ -24,10 +23,10 @@ async function loadCards(url){
             const ponyImg = obj['image'][0]
             ponyCardDiv.insertAdjacentHTML('beforeend', 
                 `
-                <div class="card">
+                <div class="card w-full bg-gray-200 rounded-lg m-auto mt-2 mb-2">
                     <p class="characterName">${ponyName}</p>
                     <img class="ponyImg" src='${ponyImg} alt='Image of ${ponyName}'>
-                    <button class='learn-more-btn'>Learn More!</button>
+                    <button class='learn-more-btn block bg-pink-300 text-gray-200'>Learn More!</button>
                 </div>
                 `
             )

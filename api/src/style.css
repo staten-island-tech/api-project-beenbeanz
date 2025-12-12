@@ -16,31 +16,7 @@
 
   --primary: white;
 }
-#headerDiv{
-  text-align: center;
-}
-.h1Header{
-  font-size: 3.5rem;
-}
-.h2Header{
-  font-size: 2rem;
-}
-.h1Header, .h2Header{
-  margin: 0;
-}
-#charactersCardDiv{
-  width: 67%;
-  margin: auto;
-  border: 2px solid red;
-  display: flex;
-}
-.card{
-  width: 67%;
-  border: 2px solid white;
-  background-color: var(--primary);
-  border-radius: 6px;
-  margin: auto;
-}
+
 .card p{}
 button{
   display: block;
