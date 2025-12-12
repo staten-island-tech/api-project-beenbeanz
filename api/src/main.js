@@ -24,8 +24,8 @@ async function loadCards(url){
             ponyCardDiv.insertAdjacentHTML('beforeend', 
                 `
                 <div class="card w-full bg-gray-200 rounded-lg m-auto mt-2 mb-2">
-                    <p class="characterName">${ponyName}</p>
-                    <img class="ponyImg center block" src='${ponyImg} alt='Image of ${ponyName}'>
+                    <p class="characterName text-center text-6x1">${ponyName}</p>
+                    <img class="ponyImg m-auto rounded-lg block w-3/6 h-3/6" src='${ponyImg} alt='Image of ${ponyName}'>
                     <button class='learn-more-btn block bg-pink-300 text-gray-200'>Learn More!</button>
                 </div>
                 `
