@@ -25,7 +25,7 @@ async function loadCards(url){
                 `
                 <div class="card w-full bg-gray-200 rounded-lg m-auto mt-2 mb-2">
                     <p class="characterName">${ponyName}</p>
-                    <img class="ponyImg" src='${ponyImg} alt='Image of ${ponyName}'>
+                    <img class="ponyImg center block" src='${ponyImg} alt='Image of ${ponyName}'>
                     <button class='learn-more-btn block bg-pink-300 text-gray-200'>Learn More!</button>
                 </div>
                 `

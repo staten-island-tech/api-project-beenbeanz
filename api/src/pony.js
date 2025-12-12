@@ -20,9 +20,7 @@ export async function showPonyData(ponyName){
     try{
         const response = await fetch(`http://ponyapi.net/v1/character/${ponyNameForUrl}`)
         const data = await response.json();
-        const pony = data['data'][0]
-        console.log(pony)
-     
+        const pony = data['data'][0]     
         const {
             id,
             name,
@@ -35,9 +33,7 @@ export async function showPonyData(ponyName){
             image
         } = pony
         
-       
         const ponyInfoSection = document.querySelector('#ponyInfo')
-        
         ponyInfoSection.insertAdjacentHTML('beforeend', 
             `
             <h3 class='name text-lg m-0.5'>${name}</h3>
