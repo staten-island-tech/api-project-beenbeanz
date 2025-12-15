@@ -3,10 +3,6 @@ import './style.css'
 const url = 'http://ponyapi.net/v1/character/all?limit=350';
 const ponyCardDiv = document.querySelector('#ponyCardDiv');
 
-/*fetch(url)
-    .then(response => response.json())
-    .then(data => console.log(data))
-*/
 async function loadCards(url){
 //get character name, photo
 //add learn more btn to run next api call function
@@ -24,9 +20,9 @@ async function loadCards(url){
             ponyCardDiv.insertAdjacentHTML('beforeend', 
                 `
                 <div class="card w-full bg-gray-200 rounded-lg m-auto mt-2 mb-2">
-                    <p class="characterName text-center text-6x1">${ponyName}</p>
-                    <img class="ponyImg m-auto rounded-lg block w-3/6 h-3/6" src='${ponyImg} alt='Image of ${ponyName}'>
-                    <button class='learn-more-btn block bg-pink-300 text-gray-200'>Learn More!</button>
+                    <p class="characterName text-center text-4xl mt-2 mb-2">${ponyName}</p>
+                    <img class="ponyImg m-auto rounded-lg block w-3/6 h-3/6 mb-4 mt-4" src='${ponyImg} alt='Image of ${ponyName}'>
+                    <button class='learn-more-btn block bg-pink-300 text-gray-200 m-auto cursor-pointer'>Learn More!</button>
                 </div>
                 `
             )
@@ -36,9 +32,6 @@ async function loadCards(url){
             const ponyCard = e.target.parentElement;
             const ponyName = ponyCard.querySelector('.characterName').textContent;
             window.location.href = `./pony.html?pony=${ponyName}`;
-
-            //window.location.href = './pony.html';
-            //showPonyData(ponyName)
         }))
     }
     catch(error){

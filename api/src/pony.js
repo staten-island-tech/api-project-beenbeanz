@@ -32,12 +32,15 @@ export async function showPonyData(ponyName){
             kind,
             image
         } = pony
+
+        const aliasHTML = alias ? alias : 'none';
+
         
         const ponyInfoSection = document.querySelector('#ponyInfo')
         ponyInfoSection.insertAdjacentHTML('beforeend', 
             `
             <h3 class='name text-lg m-0.5'>${name}</h3>
-            <h4 class='alias m-0.5'>Aliase(s): ${alias}</h4>
+            <h4 class='alias m-0.5'>Aliase(s): ${aliasHTML}</h4>
             <a class='url underline m-0.5' href='${url}'>Wiki page</a>
             <p class='sex normalText m-0.5'>Sex: ${sex}</p>
             <p class='residence normalText m-0.5'>Place(s) of residency: ${residence}</p>
