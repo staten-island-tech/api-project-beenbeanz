@@ -6,16 +6,8 @@ if (ponyName) {
     showPonyData(ponyName);
 }
 
-
 export async function showPonyData(ponyName){
-    let ponyNameForUrl = ponyName;
-    if(ponyName.includes(' ')){
-        const index = ponyName.indexOf(' ');
-        const charToInsert = '_'
-        ponyNameForUrl = ponyName.slice(0, index) +
-                        charToInsert +
-                        ponyName.slice(index + 1)
-    }
+    const ponyNameForUrl = ponyName.replaceAll(' ', '_');
 
     try{
         const response = await fetch(`http://ponyapi.net/v1/character/${ponyNameForUrl}`)
@@ -35,7 +27,6 @@ export async function showPonyData(ponyName){
 
         const aliasHTML = alias ? alias : 'none';
 
-        
         const ponyInfoSection = document.querySelector('#ponyInfo')
         ponyInfoSection.insertAdjacentHTML('beforeend', 
             `

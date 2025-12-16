@@ -31,6 +31,7 @@ export async function loadCards(url){
         learnMoreBtns.forEach(btn => btn.addEventListener('click', (e) => {
             const ponyCard = e.target.parentElement;
             const ponyName = ponyCard.querySelector('.characterName').textContent;
+
             window.location.href = `./pony.html?pony=${ponyName}`;
         }))
     }
@@ -47,4 +48,5 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const textBoxValue = e.target.querySelector('#formTextBox').value;
     searchPony(textBoxValue);
+    //textBoxValue.value = '';
 })

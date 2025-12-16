@@ -14,6 +14,9 @@ export async function searchPony(input){
             const ponyNameLowerCase = pony['name'].toLowerCase();
             if(ponyNameLowerCase.includes(inputLowerCase)){
                 const ponyName = pony['name'];
+                if(!pony.hasOwnProperty('image')){
+                return;
+                }
                 const ponyImg = pony['image'][0]
                 ponyCardDiv.insertAdjacentHTML('beforeend', 
                     `
