@@ -1,9 +1,10 @@
 import './style.css'
+import { searchPony } from './filter';
 
 const url = 'http://ponyapi.net/v1/character/all?limit=350';
 const ponyCardDiv = document.querySelector('#ponyCardDiv');
 
-async function loadCards(url){
+export async function loadCards(url){
 //get character name, photo
 //add learn more btn to run next api call function
     try{
@@ -12,7 +13,6 @@ async function loadCards(url){
         const dataArr = data['data'];
         dataArr.forEach(obj => {
             const ponyName = obj['name']
-            //selecting the first available image
             if(!obj.hasOwnProperty('image')){
                 return;
             }
@@ -39,3 +39,12 @@ async function loadCards(url){
     }
 }
 loadCards(url)
+
+
+const form = document.getElementById('searchForm');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const textBoxValue = e.target.querySelector('#formTextBox').value;
+    searchPony(textBoxValue);
+})
