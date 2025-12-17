@@ -1,4 +1,4 @@
-import './style.css'
+
 
 const url = 'http://ponyapi.net/v1/character/all?limit=350';
 const ponyCardDiv = document.querySelector('#ponyCardDiv');
@@ -10,14 +10,16 @@ export async function searchPony(input){
         const response = await fetch(url);
         const data = await response.json();
         const dataArr = data['data'];
+        let foundPonies = false;
+
         dataArr.forEach(pony => {
             const ponyNameLowerCase = pony['name'].toLowerCase();
             if(ponyNameLowerCase.includes(inputLowerCase)){
+                foundPonies = true;
                 const ponyName = pony['name'];
-                if(!pony.hasOwnProperty('image')){
-                return;
-                }
+                if(!pony.hasOwnProperty('image')) return;
                 const ponyImg = pony['image'][0]
+
                 ponyCardDiv.insertAdjacentHTML('beforeend', 
                     `
                     <div class="card w-full bg-gray-200 rounded-lg m-auto mt-2 mb-2">
@@ -29,6 +31,11 @@ export async function searchPony(input){
                 )
             }
         });
+        if(!foundPonies){
+            ponyCardDiv.insertAdjacentHTML('beforeend', `
+                <p class="text-3xl text-center m-auto mt-6 align-middle">Oops! No ponies found</p>
+            `)
+        }
         const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
         learnMoreBtns.forEach(btn => btn.addEventListener('click', (e) => {
             const ponyCard = e.target.parentElement;
@@ -36,6 +43,6 @@ export async function searchPony(input){
             window.location.href = `./pony.html?pony=${ponyName}`;
         }))
     } catch(error){
-        console.error(error);
+        console.error(error);        
     }
 }

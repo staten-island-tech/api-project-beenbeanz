@@ -22,7 +22,7 @@ export async function loadCards(url){
                 <div class="card w-full bg-gray-200 rounded-lg m-auto mt-2 mb-2">
                     <p class="characterName text-center text-4xl mt-2 mb-2">${ponyName}</p>
                     <img class="ponyImg m-auto rounded-lg block w-3/6 h-3/6 mb-4 mt-4" src='${ponyImg} alt='Image of ${ponyName}'>
-                    <button class='learn-more-btn block bg-pink-300 text-gray-200 m-auto cursor-pointer'>Learn More!</button>
+                    <button class='learn-more-btn block bg-pink-300 text-gray-200 m-auto mb-3 cursor-pointer'>Learn More!</button>
                 </div>
                 `
             )
@@ -48,5 +48,4 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const textBoxValue = e.target.querySelector('#formTextBox').value;
     searchPony(textBoxValue);
-    //textBoxValue.value = '';
 })
