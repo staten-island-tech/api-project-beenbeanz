@@ -1,7 +1,7 @@
 import './style.css'
 import { searchPony } from './filter';
 
-const url = 'http://ponyapi.net/v1/character/all?limit=350';
+const url = 'https://ponyapi.net/v1/character/all?limit=350';
 const ponyCardDiv = document.querySelector('#ponyCardDiv');
 
 export async function loadCards(url){
