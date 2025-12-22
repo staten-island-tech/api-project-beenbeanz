@@ -15,7 +15,7 @@ export async function showPonyData(ponyName){
     const ponyNameForUrl = ponyName.replaceAll(' ', '_');
 
     try{
-        const response = await fetch(`http://ponyapi.net/v1/character/${ponyNameForUrl}`)
+        const response = await fetch(`https://ponyapi.net/v1/character/${ponyNameForUrl}`)
         const data = await response.json();
         const pony = data['data'][0]     
         const {

@@ -1,6 +1,6 @@
 
 
-const url = 'http://ponyapi.net/v1/character/all?limit=350';
+const url = 'https://ponyapi.net/v1/character/all?limit=350';
 const ponyCardDiv = document.querySelector('#ponyCardDiv');
 
 export async function searchPony(input){
